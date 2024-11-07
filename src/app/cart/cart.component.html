@@ -1,0 +1,11 @@
+@if (cartItems$ | async; as cartItems) {
+    @for (item of cartItems; track item.product.id) {
+      <p>{{ item.product.name }} - {{ item.quantity }} - ${{ item.product.price * item.quantity }}</p>
+      <button (click)="addProduct(item.product)">Añadir</button>
+      <button (click)="removeProduct(item.product.id)">Eliminar</button>
+    }
+  }
+
+<br>
+<button (click)="clearCart()">Vaciar Carrito</button>
+  
